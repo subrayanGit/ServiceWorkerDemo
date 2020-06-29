@@ -1,0 +1,24 @@
+*{
+	padding:0;
+	margin:0;
+}
+
+.box1{
+	background-color:rgb(255, 255, 120);
+}
+.box2{
+	background-color:rgb(255, 210, 105);
+}
+.box3{
+	background-color:rgb(200, 255, 170);
+}
+.box4{
+	background-color:rgb(165, 175, 255);
+}
+
+main{
+	display:grid;
+	grid-template-columns:1fr 1fr;
+	grid-template-rows:300px 300px;
+	
+}

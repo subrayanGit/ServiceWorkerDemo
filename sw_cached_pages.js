@@ -1,6 +1,7 @@
 const cachedName = 'v1';
 const cachedAssets = [
-    'index.html'
+    'index.html',
+    'mobile.html',
 ];
 
 // call install event

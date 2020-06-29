@@ -1,4 +1,4 @@
-const cachedName = 'v1';
+const cachedName = 'v2';
 
 
 // call install event
@@ -28,17 +28,21 @@ self.addEventListener('activate', (e) => {
 // call fetch event
 self.addEventListener('fetch', e =>{
     console.log('Service Worker Fetch');
-    e.respondWith(
-        fetch(e.request)
-            .then(req => {
-                //Make clone of response
-                const resClone = res.clone();
-                caches.open(cachedName)
-                    .then(cache => {
-                        // add response cache
-                        cache.put(e.request, resClone);
-                    });
-                return res;    
-            }).catch(err => caches.match(e.request).then(res => res))
-    );
-})
+	e.respondWith(
+		fetch(e.request)
+			.then(res => {
+				// make a clone of a response
+				const resClone = res.clone();
+				//open cache
+				caches
+					.open(cachedName)
+					.then(cache => {
+						//response to cache
+							cache.put(e.request, resClone);
+								
+					});
+					return res;
+		}).catch(err => caches.match(e.request).then(res => res))
+	);
+
+});
